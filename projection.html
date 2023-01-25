@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Projection Explorer</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: black;
+    }
+
+    #dist {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      font-size: 12;
+      font-family: Arial, Helvetica, sans-serif;
+      color: red;
+      z-index: 10;
+    }
+
+  </style>
+  <script src="lib/dat.gui.min.js"></script>
+</head>
+
+<body>
+  <div id="dist">Equirectangular Projection</div>
+  <canvas id="canvas"></canvas>
+
+  <script src="lib/stats.js"></script>
+  <script src="lib/shaders.js"></script>
+  <script src="lib/vec.js"></script>
+  <script src="lib/matrix.js"></script>
+  <script src="lib/gltf.js"></script>
+  <script src="lib/tex.js"></script>
+  <script src="scripts/projection.js"></script>
+</body>
+
+</html>
