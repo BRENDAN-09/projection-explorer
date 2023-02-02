@@ -14,20 +14,109 @@
 
     #dist {
       position: absolute;
-      bottom: 0px;
-      left: 0px;
-      font-size: 12;
+      top: 2%;
+      left: 2%;
+      font-size: 24px;
       font-family: Arial, Helvetica, sans-serif;
-      color: red;
+      color: white;
       z-index: 10;
     }
 
+    .arrow {
+      border: solid white;
+      border-width: 0 5px 5px 0;
+      display: inline-block;
+      padding: 10px;
+    }
+
+    .right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+
+    .left {
+      transform: rotate(135deg);
+      -webkit-transform: rotate(135deg);
+    }
+
+    .up {
+      transform: rotate(-135deg);
+      -webkit-transform: rotate(-135deg);
+    }
+
+    .down {
+      transform: rotate(45deg);
+      -webkit-transform: rotate(45deg);
+    }
+
+    .left_tab {
+      position: absolute;
+      bottom: 50%;
+      left: 2%;
+      transform: translate(0, 50%);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .left_tab:hover {
+      transform: translate(0,50%) scale(150%);
+    }
+
+    .right_tab {
+      position: absolute;
+      bottom: 50%;
+      right: 2%;
+      transform: translate(0, 50%);
+      z-index: 10;
+      transition: 0.3s;
+    }
+
+    .right_tab:hover {
+      transform: translate(0,50%) scale(150%);
+    }
+
+    .right_menu {
+      position: absolute;
+      top: 2%;
+      right: 2%;
+      z-index: 10;
+      color: white;
+      font-size: 8mm;
+    }
+
+    .menu_button {
+      display: inline-block;
+      transition: 0.3s;
+    }
+
+    .menu_button:hover {
+      font-size: 9mm;
+    }
+
+    .menu_button_flip {
+      display: inline-block;
+      transition: 0.3s;
+      transform: scale(-1,1);
+      
+    }
+
+    .menu_button_flip:hover {
+      font-size: 9mm;
+    }
   </style>
   <script src="lib/dat.gui.min.js"></script>
 </head>
 
 <body>
-  <div id="dist">Equirectangular Projection</div>
+  <div id="dist">Lambert cylindrical equal-area projection</div>
+  <div class="left_tab"><i class="arrow left" onclick="decrement_mode()"></i></div>
+  <div class="right_tab"><i class="arrow right" onclick="increment_mode()"></i></div>
+
+  <div class="right_menu">
+    <i class="menu_button_flip" onmousedown="revolving=-1" onmouseup="revolving=0" onmouseleave="revolving=0">&#x1F504;</i>
+    <i class="menu_button" onclick="rotation = Quaternion.fromAxisAngle([0,1,0],Math.PI/2.0)">&#x1F30D;</i>
+    <i class="menu_button" onmousedown="revolving=1" onmouseup="revolving=0" onmouseleave="revolving=0">&#x1F504;</i>
+  </div>
   <canvas id="canvas"></canvas>
 
   <script src="lib/stats.js"></script>
@@ -36,6 +125,7 @@
   <script src="lib/matrix.js"></script>
   <script src="lib/gltf.js"></script>
   <script src="lib/tex.js"></script>
+  <script src="lib/quaternion.js"></script>
   <script src="scripts/projection.js"></script>
 </body>
 
