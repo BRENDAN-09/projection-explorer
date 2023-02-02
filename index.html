@@ -10,6 +10,15 @@
       padding: 0;
       overflow: hidden;
       background-color: black;
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
+    }
+
+    .fun {
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none; /* Standard syntax */
     }
 
     #dist {
@@ -128,7 +137,7 @@
     <i class="menu_button" onmousedown="revolving=1" onmouseup="revolving=0" onmouseleave="revolving=0" ontouchstart="revolving=1" ontouchend="revolving=0">&#x1F504;</i>
   </div>
   <div id = "loading" class = "loading">Loading...</div>
-  <canvas id="canvas"></canvas>
+  <canvas class = "fun" id="canvas"></canvas>
 
   <script src="lib/shaders.js"></script>
   <script src="lib/vec.js"></script>
