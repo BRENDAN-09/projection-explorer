@@ -107,15 +107,20 @@ function handle_resize(){
     gl.useProgram(old_program)
     
 }
-window.addEventListener("mousedown",()=>{mousedown=true})
-window.addEventListener("mouseup", ()=>{mousedown=false})
-window.addEventListener("mousemove", (e)=>{
+
+function handle_mousemove(e){
     if(!mousedown)return
     let rot_east = Quaternion.fromAxisAngle([0,1,0], -(e.movementX/w)*Math.PI*2)
     rotation = rot_east.mul(rotation)
     let rot_north = Quaternion.fromAxisAngle([1,0,0],-(e.movementY/h)*Math.PI*2)
     rotation = rot_north.mul(rotation)
-})
+}
+window.addEventListener("mousedown",()=>{mousedown=true})
+window.addEventListener("mouseup", ()=>{mousedown=false})
+window.addEventListener("touchstart",()=>{mousedown=true})
+window.addEventListener("touchend", ()=>{mousedown=false})
+window.addEventListener("mousemove", handle_mousemove)
+window.addEventListener("touchmove", handle_mousemove)
 
 let increment_mode = () => {mode = mode<modes.length-1?mode+1:0; init_projector()}
 let decrement_mode = () => {mode = mode>0?mode-1:modes.length-1; init_projector()}

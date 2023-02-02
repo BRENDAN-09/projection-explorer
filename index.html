@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Projection Explorer</title>
   <style>
-    body {
+    body, html{
       margin: 0;
       padding: 0;
       overflow: hidden;
@@ -123,9 +123,9 @@
   <div class="right_tab"><i class="arrow right" onclick="increment_mode()"></i></div>
 
   <div class="right_menu">
-    <i class="menu_button_flip" onmousedown="revolving=-1" onmouseup="revolving=0" onmouseleave="revolving=0">&#x1F504;</i>
-    <i class="menu_button" onclick="rotation = Quaternion.fromAxisAngle([0,1,0],Math.PI/2.0)">&#x1F30D;</i>
-    <i class="menu_button" onmousedown="revolving=1" onmouseup="revolving=0" onmouseleave="revolving=0">&#x1F504;</i>
+    <i class="menu_button_flip" onmousedown="revolving=-1" onmouseup="revolving=0" onmouseleave="revolving=0" ontouchstart="revolving=-1" ontouchend="revolving=0">&#x1F504;</i>
+    <i class="menu_button" onclick="rotation = Quaternion.fromAxisAngle([0,1,0],Math.PI/2.0)" ontouchstart="rotation = Quaternion.fromAxisAngle([0,1,0],Math.PI/2.0)">&#x1F30D;</i>
+    <i class="menu_button" onmousedown="revolving=1" onmouseup="revolving=0" onmouseleave="revolving=0" ontouchstart="revolving=1" ontouchend="revolving=0">&#x1F504;</i>
   </div>
   <div id = "loading" class = "loading">Loading...</div>
   <canvas id="canvas"></canvas>
