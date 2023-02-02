@@ -103,8 +103,18 @@
     .menu_button_flip:hover {
       font-size: 9mm;
     }
+
+    .loading{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      font-size: 1000%;
+      font-family: Arial, Helvetica, sans-serif;
+      color: white;
+      transform: translate(-50%,-50%);
+      z-index: 100;
+    }
   </style>
-  <script src="lib/dat.gui.min.js"></script>
 </head>
 
 <body>
@@ -117,9 +127,9 @@
     <i class="menu_button" onclick="rotation = Quaternion.fromAxisAngle([0,1,0],Math.PI/2.0)">&#x1F30D;</i>
     <i class="menu_button" onmousedown="revolving=1" onmouseup="revolving=0" onmouseleave="revolving=0">&#x1F504;</i>
   </div>
+  <div id = "loading" class = "loading">Loading...</div>
   <canvas id="canvas"></canvas>
 
-  <script src="lib/stats.js"></script>
   <script src="lib/shaders.js"></script>
   <script src="lib/vec.js"></script>
   <script src="lib/matrix.js"></script>

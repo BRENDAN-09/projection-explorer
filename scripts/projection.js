@@ -4,10 +4,10 @@ let gl = canvas.getContext("webgl")
 
 let modes = [
     {id: "mercator", name: "Mercator Projection", shader: "shader/mercator.fs"},
-    {id: "cylinder", name: "Cylindrical Projection", shader: "shader/dumb.fs"},
-    {id: "equirectangular", name: "Equirectangular projection", shader: "shader/equi.fs"},
     {id: "mollweide", name: "Mollweide Projection", shader: "shader/mollweide.fs"},
     {id: "sinosoidal", name: "Sinosoidal Projection", shader: "shader/sinosoidal.fs"},
+    {id: "cylinder", name: "Cylindrical Projection", shader: "shader/dumb.fs"},
+    {id: "equirectangular", name: "Equirectangular projection", shader: "shader/equi.fs"},
     {id: "azimuth", name: "Lambert azimuthal equal-area projection", shader: "shader/azimuthal.fs"},
     {id: "lambert", name: "Lambert cylindrical projection", shader: "shader/cylinder.fs"},
     {id: "stereo", name: "Stereographic Projection", shader: "shader/stereo.fs"}
@@ -51,6 +51,8 @@ async function start() {
     gl.useProgram(sphere.program)
     gl.uniform1i(sphere.uniforms.map,0)
     gl.uniformMatrix3fv(sphere.uniforms.rotation, false, rotation.toMatrix())
+
+    document.getElementById("loading").remove()
     render()
 }
 
