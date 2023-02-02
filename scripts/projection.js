@@ -53,6 +53,8 @@ async function start() {
     gl.uniformMatrix3fv(sphere.uniforms.rotation, false, rotation.toMatrix())
 
     document.getElementById("loading").remove()
+    setTimeout(()=>document.getElementById("info").classList.add("info_gone"), 8000);
+    setTimeout(()=>document.getElementById("info").remove(), 10000);
     render()
 }
 
