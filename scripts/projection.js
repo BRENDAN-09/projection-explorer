@@ -7,13 +7,14 @@ let modes = [
     {id: "mollweide", name: "Mollweide Projection", shader: "shader/mollweide.fs"},
     {id: "sinosoidal", name: "Sinosoidal Projection", shader: "shader/sinosoidal.fs"},
     {id: "cylinder", name: "Cylindrical Projection", shader: "shader/dumb.fs"},
-    {id: "equirectangular", name: "Equirectangular projection", shader: "shader/equi.fs"},
-    {id: "azimuth", name: "Lambert azimuthal equal-area projection", shader: "shader/azimuthal.fs"},
-    {id: "lambert", name: "Lambert cylindrical projection", shader: "shader/cylinder.fs"},
-    {id: "stereo", name: "Stereographic Projection", shader: "shader/stereo.fs"}
+    {id: "equirectangular", name: "Equirectangular Projection", shader: "shader/equi.fs"},
+    {id: "azimuth", name: "Lambert Azimuthal Equal-area Projection", shader: "shader/azimuthal.fs"},
+    {id: "lambert", name: "Lambert Cylindrical Projection", shader: "shader/cylinder.fs"},
+    {id: "stereo", name: "Stereographic Projection", shader: "shader/stereo.fs"},
+    {id: "gnomic", name: "Gnomonic Projection", shader: "shader/gnomic.fs"}
     //{id: "conic", name: "Conic fun fun", shader: "shader/conic.fs"}
 ]
-let mode = 0
+let mode = modes.length-1;
 let geoData = new Float32Array([-1,-1,-1,1,1,-1,1, 1,1,-1,-1,1])
 
 let cylinder = {uniforms: {},attributes: {}}
@@ -92,7 +93,7 @@ function handle_resize(){
         sphere_vp = [(w-s)/2,(h-s/2)/2,globe_size,globe_size]
     }
 
-    if(mode_id == "cylinder" || mode_id == "mercator" ||  mode_id == "stereo" ){
+    if(mode_id == "cylinder" || mode_id == "mercator" ||  mode_id == "stereo"|| mode_id == "gnomic"){
         cylinder_vp = [0,0,w,h]
         sphere_vp = [0,0,globe_size,globe_size]
     }
