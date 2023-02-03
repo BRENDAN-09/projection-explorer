@@ -14,7 +14,7 @@ let modes = [
     {id: "gnomic", name: "Gnomonic Projection", shader: "shader/gnomic.fs"}
     //{id: "conic", name: "Conic fun fun", shader: "shader/conic.fs"}
 ]
-let mode = modes.length-1;
+let mode = 0;
 let geoData = new Float32Array([-1,-1,-1,1,1,-1,1, 1,1,-1,-1,1])
 
 let cylinder = {uniforms: {},attributes: {}}
