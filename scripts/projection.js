@@ -5,7 +5,8 @@ let gl = canvas.getContext("webgl")
 let modes = [
     {id: "mercator", name: "Mercator Projection", shader: "shader/mercator.fs"},
     {id: "mollweide", name: "Mollweide Projection", shader: "shader/mollweide.fs"},
-    {id: "sinosoidal", name: "Sinosoidal Projection", shader: "shader/sinosoidal.fs"},
+    {id: "sinosoidal", name: "Folding Projection", shader: "shader/folding.fs"},
+    {id: "sinosoidal", name: "Sinusoidal Projection", shader: "shader/sinosoidal.fs"},
     {id: "cylinder", name: "Cylindrical Projection", shader: "shader/dumb.fs"},
     {id: "equirectangular", name: "Equirectangular Projection", shader: "shader/equi.fs"},
     {id: "azimuth", name: "Lambert Azimuthal Equal-area Projection", shader: "shader/azimuthal.fs"},
